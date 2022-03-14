@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>News O'Clock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;452;600&family=Josefin+Sans:wght@500&family=Oswald:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <div class="block">
+    <header class="header">
+      <div class="header-block">
+        
+        <h1 >News O'Clock</h1></a>
+        
+        <a href="http://localhost:5000/" class="header-news">
+          <h3>Refresh for last news</h3>
+        </a>
+        <div class="social-media">
+          <a href="#" class="fa fa-facebook"></a>
+          <a href="#" class="fa fa-twitter"></a>
+          <a href="#" class="fa fa-instagram"></a>
+          <a href="#" class="fa fa-google"></a>
+  
+          </div>
+      </div>
+        
+      <div class="header-search">
+        <form action="/" method="POST">
+          <input type="text" name="search" placeholder="Search for news" required>
+          <input type="submit" value="Search">
+        </form>
+      </div>
+    </header>
+
+
+    <div class="wrapper">
+      <div class="news">
+        <% if(article != null) { %> 
+          <% for(let i = 0; i<article.articles.length;i++){ %>
+          <a href="<%= article.articles[i].url %>" class="news_box">
+            <img src="<%= article.articles[i].urlToImage %>" alt="">
+            <h2><%= article.articles[i].title %></h2>
+            <p><%= article.articles[i].description %></p>
+          </a>
+          <% } %>
+          <% } else { %>
+            <h2>No Posts.</h2>
+          <% } %> 
+      </div>
+    </div>
+
+    </div>
+  </body>
+</html>
